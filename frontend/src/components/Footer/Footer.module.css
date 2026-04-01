@@ -1,0 +1,62 @@
+.footer {
+  background-color: #f8fafc;
+  padding: 32px 40px;
+  border-top: 1px solid #e2e8f0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.linkItem {
+  color: #64748b;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.linkItem:hover {
+  color: #6366f1;
+}
+
+.copyright {
+  color: #94a3b8;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 24px;
+}
+
+@media (max-width: 600px) {
+  .footerContent {
+    flex-direction: column;
+    text-align: center;
+  }
+}
