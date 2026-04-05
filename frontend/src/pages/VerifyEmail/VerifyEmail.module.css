@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.successIcon, .errorIcon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.successIcon { color: #4caf50; }
+.errorIcon { color: #f44336; }
+
+.successTitle { color: #4caf50; margin-bottom: 10px; }
+.errorTitle { color: #f44336; margin-bottom: 10px; }
+
+.redirectText { color: #666; font-size: 14px; margin: 15px 0; }
+
+.link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #2196f3;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link:hover { text-decoration: underline; }
