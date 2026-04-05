@@ -34,7 +34,16 @@ const userSchema = new mongoose.Schema({
   },
   verificationToken: {
     type: String
-  }
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user'
+  },
+  todos: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Todo'
+  }]
 }, {
   timestamps: true
 });
