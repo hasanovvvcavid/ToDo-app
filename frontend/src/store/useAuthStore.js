@@ -64,8 +64,10 @@ const useAuthStore = create(
     }),
     {
       name: 'auth-storage', // localStorage-da saxlanılacaq açar
+      partialize: (state) => ({ user: state.user, token: state.token }), // Yalnız user və token-i yadda saxla
     }
   )
 );
+
 
 export default useAuthStore;
