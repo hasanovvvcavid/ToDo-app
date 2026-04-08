@@ -19,10 +19,10 @@ const useTodoStore = create((set, get) => ({
     }
   },
 
-  addTodo: async (title) => {
+  addTodo: async (title, priority = 'medium') => {
     set({ loading: true, error: null });
     try {
-      const { data } = await axiosInstance.post('/todos', { title });
+      const { data } = await axiosInstance.post('/todos', { title, priority });
       set((state) => ({ 
         todos: [data, ...state.todos], 
         loading: false 

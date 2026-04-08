@@ -1,7 +1,7 @@
 .footer {
-  background-color: #f8fafc;
+  background-color: var(--bg-navbar);
   padding: 32px 40px;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--border-color);
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   margin-top: 60px;
   display: flex;
@@ -23,7 +23,7 @@
 .brand {
   font-size: 20px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--text-primary);
 }
 
 .links {
@@ -33,7 +33,7 @@
 }
 
 .linkItem {
-  color: #64748b;
+  color: var(--text-secondary);
   font-size: 14px;
   text-decoration: none;
   font-weight: 500;
@@ -42,15 +42,15 @@
 }
 
 .linkItem:hover {
-  color: #6366f1;
+  color: var(--accent-color);
 }
 
 .copyright {
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 14px;
   text-align: center;
   width: 100%;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--border-color);
   padding-top: 24px;
 }
 

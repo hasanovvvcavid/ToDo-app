@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .mainContent {
@@ -22,18 +24,18 @@
 
 .heroTitle {
   font-size: 3.5rem;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin-bottom: 1rem;
   font-weight: 700;
 }
 
 .heroTitle span {
-  color: #4CAF50;
+  color: var(--accent-color);
 }
 
 .heroSubtitle {
   font-size: 1.25rem;
-  color: #666;
+  color: var(--text-secondary);
   margin-bottom: 2.5rem;
   line-height: 1.6;
 }
@@ -45,7 +47,7 @@
 }
 
 .primaryBtn {
-  background-color: #4CAF50;
+  background-color: var(--accent-color);
   color: white;
   padding: 0.8rem 2rem;
   border-radius: 8px;
@@ -58,24 +60,54 @@
 }
 
 .primaryBtn:hover {
-  background-color: #45a049;
+  background-color: var(--accent-hover);
   transform: translateY(-2px);
 }
 
 .secondaryBtn {
   background-color: transparent;
-  color: #4CAF50;
+  color: var(--accent-color);
   padding: 0.8rem 2rem;
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 2px solid #4CAF50;
+  border: 2px solid var(--accent-color);
   cursor: pointer;
 }
 
 .secondaryBtn:hover {
-  background-color: rgba(76, 175, 80, 0.1);
+  background-color: rgba(99, 102, 241, 0.1);
   transform: translateY(-2px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  
+  .primaryBtn, .secondaryBtn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
 }

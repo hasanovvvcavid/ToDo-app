@@ -1,28 +1,80 @@
 .todoContainer {
-  background-color: #ffffff;
+  background-color: var(--bg-secondary);
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--card-shadow);
   width: 100%;
-  max-width: 450px;
+  max-width: 750px;
   margin: 40px auto;
   padding: 30px;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  border: 1px solid var(--border-color);
 }
 
 .header {
   margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.headerLeft {
+  flex: 1;
+}
+
+.headerRight {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.select {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--item-bg);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
 .title {
   font-size: 28px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--text-primary);
   margin: 0 0 8px 0;
 }
 
 .date {
   font-size: 14px;
-  color: #64748b;
+  color: var(--text-secondary);
   margin: 0;
   font-weight: 500;
 }
@@ -36,12 +88,13 @@
 .input {
   flex: 1;
   padding: 14px 18px;
-  border: 2px solid #e2e8f0;
+  border: 2px solid var(--border-color);
   border-radius: 10px;
   font-size: 15px;
   outline: none;
   transition: all 0.2s ease;
-  color: #334155;
+  color: var(--text-primary);
+  background-color: var(--input-bg);
 }
 
 .input::placeholder {
@@ -49,12 +102,12 @@
 }
 
 .input:focus {
-  border-color: #6366f1;
+  border-color: var(--accent-color);
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
 .addButton {
-  background-color: #6366f1;
+  background-color: var(--accent-color);
   color: white;
   border: none;
   border-radius: 10px;
@@ -66,7 +119,7 @@
 }
 
 .addButton:hover {
-  background-color: #4f46e5;
+  background-color: var(--accent-hover);
   transform: translateY(-1px);
 }
 
@@ -91,12 +144,12 @@
 }
 
 .todoList::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--bg-primary);
   border-radius: 10px;
 }
 
 .todoList::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: var(--border-color);
   border-radius: 10px;
 }
 
@@ -108,16 +161,16 @@
   display: flex;
   align-items: center;
   padding: 16px;
-  background-color: #f8fafc;
-  border: 1px solid #f1f5f9;
+  background-color: var(--item-bg);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   transition: all 0.2s ease;
 }
 
 .todoItem:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  border-color: #e2e8f0;
+  box-shadow: var(--shadow);
+  border-color: var(--accent-color);
 }
 
 .todoItem.completed .todoText {
@@ -128,7 +181,7 @@
 .todoNumber {
   font-size: 14px;
   font-weight: 700;
-  color: #94a3b8;
+  color: var(--text-muted);
   margin-right: 12px;
   min-width: 25px;
   text-align: right;
@@ -139,7 +192,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  border: 2px solid #cbd5e1;
+  border: 2px solid var(--border-color);
   margin-right: 16px;
   cursor: pointer;
   display: flex;
@@ -151,7 +204,7 @@
 
 /* Hover effect on purely uncompleted items */
 .todoItem:not(.completed):hover .checkbox {
-  border-color: #6366f1;
+  border-color: var(--accent-color);
 }
 
 .todoItem.completed .checkbox {
@@ -160,7 +213,7 @@
 }
 
 .todoItem.completed .checkbox::after {
-  content: '';
+  content: "";
   width: 6px;
   height: 11px;
   border: solid white;
@@ -180,17 +233,20 @@
 .todoText {
   flex: 1;
   font-size: 15px;
-  color: #334155;
+  color: var(--text-primary);
   transition: color 0.2s;
   font-weight: 500;
   line-height: 1.4;
   cursor: pointer;
+  min-width: 100px;
+  max-width: 250px;
+  overflow-wrap: break-word;
 }
 
 .todoTime {
   font-size: 11px;
-  color: #94a3b8;
-  background-color: #f1f5f9;
+  color: var(--text-muted);
+  background-color: var(--bg-primary);
   padding: 4px 10px;
   border-radius: 20px;
   font-weight: 500;
@@ -205,10 +261,10 @@
 }
 
 .actionButton {
-  background: white;
-  border: 1px solid #e2e8f0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   cursor: pointer;
-  color: #64748b;
+  color: var(--text-secondary);
   width: 32px;
   height: 32px;
   border-radius: 8px;
@@ -234,11 +290,12 @@
 .editInput {
   flex: 1;
   padding: 8px 12px;
-  border: 1px solid #6366f1;
+  border: 1px solid var(--accent-color);
   border-radius: 6px;
   font-size: 15px;
   outline: none;
-  background: white;
+  background: var(--input-bg);
+  color: var(--text-primary);
 }
 
 .emptyState {
@@ -248,11 +305,240 @@
   margin-top: 20px;
 }
 
+/* Priority Styles */
+.priorityContainer {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.priorityOption {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.2s ease;
+  color: var(--text-secondary);
+}
+
+.priorityOption:hover {
+  background-color: var(--item-bg);
+}
+
+.priorityOption.low.selected {
+  background-color: #dcfce7;
+  color: #15803d;
+  border-color: #86efac;
+}
+
+.priorityOption.medium.selected {
+  background-color: #fef9c3;
+  color: #a16207;
+  border-color: #fde047;
+}
+
+.priorityOption.high.selected {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.priorityBadge {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 10px;
+  letter-spacing: 0.5px;
+}
+
+.priorityBadge.low {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.priorityBadge.medium {
+  background-color: #fef9c3;
+  color: #a16207;
+}
+
+.priorityBadge.high {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.todoHeader {
+  display: flex;
+  align-items: center;
+}
+
+.todoItem.completed .priorityBadge {
+  opacity: 0.5;
+  background-color: #e2e8f0;
+  color: #64748b;
+}
+
 .todoItem.completed .checkbox::after {
-  content: '';
+  content: "";
   width: 5px;
   height: 10px;
   border: solid white;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+}
+
+/* Responsive Styles */
+@media (max-width: 640px) {
+  .todoContainer {
+    padding: 20px;
+    margin: 20px 15px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .headerRight {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .controlGroup {
+    width: 100%;
+  }
+
+  .select {
+    width: 100%;
+  }
+
+  .inputGroup {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .addButton {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .todoItem {
+    padding: 12px;
+    flex-wrap: wrap;
+  }
+
+  .todoContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: calc(100% - 70px);
+  }
+
+  .todoText {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .todoTime {
+    margin-left: 0;
+  }
+
+  .actions {
+    margin-left: auto;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+  .todoContainer{
+    margin: 0 !important;
+  }
+
+  .todoItem {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    padding: 20px 15px;
+  }
+
+  .todoNumber {
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .checkbox {
+    margin-right: 5px;
+    flex-shrink: 0;
+    align-self: center;
+    margin-top: -20px; /* Qaldırmaq üçün kiçik tənzimləmə */
+  }
+
+  .todoContent {
+    flex: none; /* Don't take full width here to stay on the same line as checkbox */
+    width: auto;
+    align-items: center !important;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .todoHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: auto;
+  }
+
+  .todoText {
+    text-align: left;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .priorityBadge {
+    margin-left: 0;
+    margin-top: 0;
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .todoTime {
+    text-align: right;
+    width: 100%; /* Time drops to its own line within todoContent's layout? No, todoContent is row here. Let's make it block. */
+    margin-top: 4px;
+    font-size: 10px;
+    display: block; /* Force time to new line while text/check stay row-ish via parent flex */
+    padding: 0;
+
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: center !important;
+    margin-left: 0;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-color);
+  }
 }

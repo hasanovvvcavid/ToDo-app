@@ -17,10 +17,14 @@ export const getTodos = async (req, res) => {
 // @route   POST /api/todos
 // @access  Private
 export const createTodo = async (req, res) => {
-  const { title } = req.body;
+  const { title, priority } = req.body;
 
   if (!title) {
     return res.status(400).json({ message: 'Please add a title' });
+  }
+
+  if (title.length > 20) {
+    return res.status(400).json({ message: 'Title cannot exceed 20 characters' });
   }
 
   try {
@@ -36,6 +40,7 @@ export const createTodo = async (req, res) => {
     const todo = await Todo.create({
       user: req.user._id,
       title,
+      priority: priority || 'medium',
       isCompleted: false
     });
 

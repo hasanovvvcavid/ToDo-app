@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useAuthStore from '../../store/useAuthStore';
@@ -7,6 +7,16 @@ import styles from './Navbar.module.css';
 const Navbar = () => {
   const location = useLocation();
   const { user, logout } = useAuthStore();
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   const handleLogout = () => {
     logout();
@@ -16,7 +26,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <Link to="/" className={styles.logo}>
-        <span className={styles.logoIcon}>✓</span> ToDo Pro
+        <span className={styles.logoIcon}>✓</span> ToDo App
       </Link>
       
       <ul className={styles.navLinks}>
@@ -25,6 +35,11 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/#features" className={styles.navItem}>Features</Link>
+        </li>
+        <li>
+          <button onClick={toggleTheme} className={styles.themeToggle} title="Toggle Theme">
+            {theme === 'light' ? '🌙' : '☀️'}
+          </button>
         </li>
       </ul>
 
