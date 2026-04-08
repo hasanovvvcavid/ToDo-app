@@ -26,9 +26,12 @@ const allowedOrigins = [
 ].filter(Boolean);
 
 app.use(cors({
-  origin: true,
+  origin: function (origin, callback) {
+    callback(null, true);
+  },
   credentials: true
 }));
+
 
 
 app.use(express.json());
